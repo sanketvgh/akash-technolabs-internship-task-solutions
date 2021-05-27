@@ -24,20 +24,6 @@
 <body>
 	<div class="container">
 		<?php 
-			$name = $_GET['name'];
-			$computerScience = (double)$_GET['computer-science'];
-			$pythonProgramming = (double)$_GET['python-programming'];
-			$discreteMathematics = (double)$_GET['discrete-mathematics'];
-			$machineLearning = (double)$_GET['machine-learning'];
-			$cryptography = (double)$_GET['cryptography'];
-			$marks = Array($computerScience, $pythonProgramming, $discreteMathematics,$machineLearning, $cryptography);
-			
-			//marks validation
-			for ($i=0; $i < count($marks); $i++) { 
-				if($marks[$i] < 0 || $marks[$i] > 100)
-					header("location: index.php");
-			}
-			$isStudentFail = false;
 
 			function getGrade($marks){
 				global $isStudentFail;
@@ -61,6 +47,11 @@
 				return $grade;
 			}
 
+			$name = $_GET['name'];
+			$i = 1;
+			$totalMarks = 0;
+			$totalSocredMarks = 0; 
+		
 		?>
 		<h3>Result</h3>
 		<h4>Name: <?php echo "$name"; ?></h4>
@@ -73,36 +64,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Computer Science:</td>
-					<td><?php echo "$computerScience"; ?></td>
-					<td><?php echo getGrade($computerScience); ?></td>
-				</tr>
-				<tr>
-					<td>Python Programming:</td>
-					<td><?php echo "$pythonProgramming"; ?></td>
-					<td><?php echo getGrade($pythonProgramming); ?></td>
-				</tr>
-				<tr>
-					<td>Discrete Mathematics:</td>
-					<td><?php echo "$discreteMathematics"; ?></td>
-					<td><?php echo getGrade($discreteMathematics); ?></td>
-				</tr>
-				<tr>
-					<td>Machine Learning:</td>
-					<td><?php echo "$machineLearning"; ?></td>
-					<td><?php echo getGrade($machineLearning); ?></td>
-				</tr>
-				<tr>
-					<td>Cryptography:</td>
-					<td><?php echo "$cryptography"; ?></td>
-					<td><?php echo getGrade($cryptography); ?></td>
-				</tr>
-				<?php 
-					$totalMarks = count($marks) * 100;
-					$totalSocredMarks = array_sum($marks); 
-					
-					$percentage = $totalSocredMarks / $totalMarks * 100;
+			<?php 
+				foreach ($_GET as $key => $value) {
+					if ($key == 'submit' || $key == 'name') {
+						continue;
+					}
+					if($i % 2 == 1){ 
+						$totalMarks += 100;
+						echo "<tr><td>$value</td>";
+					}else{
+						$marks = (double)$value;
+						$totalSocredMarks += $marks;
+						echo "<td>$marks</td>";
+						echo "<td>".getGrade($marks)."</td></tr>";
+					}
+					$i++; 
+				}
+				$percentage = $totalSocredMarks / $totalMarks * 100;
 				?>
 			</tbody>
 		</table>

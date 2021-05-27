@@ -24,30 +24,21 @@
 			<input type="text" id="name" class="six columns" placeholder="What's your name?" name="name" maxlength="20" required>
 			</div>
 
-			<div class="row">
-				<label for="computerScience" class="two columns">Computer Science: </label>
-			<input type="text" id="computerScience" class="six columns" placeholder="What's your Computer Science marks?" name="computer-science"  required>
-			</div>
+
 
 			<div class="row">
-				<label for="pythonProgramming" class="two columns">Python Programming: </label>
-			<input type="text" id="pythonProgramming" class="six columns" placeholder="What's your Python Programming marks?" name="python-programming"  required>
+				<label class="six columns">Subject Name</label>
+				<label class="two columns">Marks</label>
 			</div>
 
-			<div class="row">
-				<label for="discreteMathematics" class="two columns">Discrete Mathematics: </label>
-			<input type="text" id="discreteMathematics" class="six columns" placeholder="What's your Discrete Mathematics marks?" name="discrete-mathematics"  required>
-			</div>
 
+			<?php for ($i=1; $i <= 5; $i++) { ?>
 			<div class="row">
-				<label for="machineLearning" class="two columns">Machine Learning: </label>
-			<input type="text" id="machineLearning" class="six columns" placeholder="What's your Machine Learning marks?" name="machine-learning" required>
+					<input type="text" class="six columns" placeholder="What's your subject <?php echo $i ?> name?" name="<?php echo "subjectName$i" ?>" required>
+					<input type="text" class="two columns" placeholder="Marks" name="<?php echo "marks$i" ?>"  required>
 			</div>
+			<?php } ?>
 
-			<div class="row">
-				<label for="cryptography" class="two columns">Cryptography: </label>
-			<input type="text" id="cryptography" class="six columns" placeholder="What's your Cryptography marks?" name="cryptography"  required>
-			</div>
 
 			<div class="row" style="margin-top: 10px;">
 				<input type="submit" class="button button-primary eight columns" name="submit" value="Get result">
