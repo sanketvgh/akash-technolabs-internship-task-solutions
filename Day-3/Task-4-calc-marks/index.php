@@ -3,7 +3,7 @@
 <head>
 	<!-- 
 		Author: Sanket Vaghela
-	 	Task 4: Take 5 subject marks form user and display all the marks with total, percentage, and grade.
+	 	Task 4: Take 5 subject marks form user and display all the marks and also show total, percentage, and grade.
 
 	 	CSS Framework: SKELETON
 	 -->

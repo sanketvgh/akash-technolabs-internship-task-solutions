@@ -1,6 +1,6 @@
 <?php 
 /* 	Author: Sanket Vaghela
-	Task 4: Take 5 subject marks form user and display all the marks with total, percentage, and grade. */
+	Task 4: Take 5 subject marks form user and display all the marks and also show total, percentage, and grade. */
 
 	//if anyone try to access display.php directly then redirect to index page. 
 	
@@ -30,33 +30,33 @@
 			$discreteMathematics = (double)$_GET['discrete-mathematics'];
 			$machineLearning = (double)$_GET['machine-learning'];
 			$cryptography = (double)$_GET['cryptography'];
-			$subjects = Array($computerScience, $pythonProgramming, $discreteMathematics,$machineLearning, $cryptography);
+			$marks = Array($computerScience, $pythonProgramming, $discreteMathematics,$machineLearning, $cryptography);
 			
 			//marks validation
-			for ($i=0; $i < count($subjects); $i++) { 
-				if($subjects[$i] < 0 || $subjects[$i] > 100)
+			for ($i=0; $i < count($marks); $i++) { 
+				if($marks[$i] < 0 || $marks[$i] > 100)
 					header("location: index.php");
 			}
-			$isFail = false;
+			$isStudentFail = false;
 
 			function getGrade($marks){
-				global $isFail;
+				global $isStudentFail;
 				$grade = '';
 				if ($marks > 80){
-					$grade = "<span style='color:green';>First</span>";
+					$grade = "<span style='color:#07870c';>AA</span>";
 				}
 				else if($marks > 60){
-					$grade = "<span style='color:orange'>Second</span>";
+					$grade = "<span style='color:#cf7c00'>BB</span>";
 				}
 				else if($marks > 50){
-					$grade = "<span style='color:orange'>Third</span>";
+					$grade = "<span style='color:#d3bf09'>CC</span>";
 				}
 				else if($marks >= 25){
-					$grade = "<span style='color:red'>Fouth</span>";
+					$grade = "<span style='color:#f05449'>DD</span>";
 				}
 				else{
-					$grade = "<span style='color:red'>Fail</span>";
-					$isFail = true;
+					$grade = "<span style='color:red'>FF</span>";
+					$isStudentFail = true;
 				}
 				return $grade;
 			}
@@ -69,7 +69,7 @@
 				<tr>
 					<th>Subject</th>
 					<th>Marks</th>
-					<th>Position</th>
+					<th>Grade</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -99,8 +99,10 @@
 					<td><?php echo getGrade($cryptography); ?></td>
 				</tr>
 				<?php 
-					$total = array_sum($subjects); 
-					$percentage = $total / 500 * 100;
+					$totalMarks = count($marks) * 100;
+					$totalSocredMarks = array_sum($marks); 
+					
+					$percentage = $totalSocredMarks / $totalMarks * 100;
 				?>
 			</tbody>
 		</table>
@@ -108,14 +110,14 @@
 			<thead>
 				<th>Total</th>
 				<th>Percentage</th>
-				<th>Final Position</th>
+				<th>Final Grade</th>
 			</thead>
 			<tbody>
 				<tr>
-					<td><?php echo "$total/500"; ?></td>
+					<td><?php echo "$totalSocredMarks/$totalMarks"; ?></td>
 					<td><?php echo "$percentage%"; ?></td>
 
-					<td><?php echo ($isFail ? getGrade(0) : getGrade($percentage)) ?></td>
+					<td><?php echo ($isStudentFail ? "<span style='color:red'>FF</span>" : getGrade($percentage)) ?></td>
 				</tr>
 			</tbody>
 		</table>

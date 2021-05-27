@@ -25,16 +25,27 @@
 	<div class="container">
 		<?php 
 			$name = $_POST['name'];
+			$phoneNo = $_POST['phone-no'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
 			$age = (int)$_POST['age'];
 			$gender = $_POST['gender'];
 			$address = $_POST['address'];
 			$favColor = $_POST['fav_color'];
 		?>
-		<table class="column" style="padding: 10px 30px;border-radius:6px; border: 20px solid  <?php echo $favColor; ?>">
+		<table class="column" style="padding: 10px 30px;border-radius:6px; box-shadow:0 8px 65px 3px rgba(0, 0, 0, .17); border: 20px solid  <?php echo $favColor; ?>">
 			<tbody>
 				<tr>
 					<td>Name</td>
 					<td><?php echo "$name"; ?></td>
+				</tr>
+				<tr>
+					<td>Phone No</td>
+					<td><?php echo "$phoneNo"; ?></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><?php echo "$email"; ?></td>
 				</tr>
 				<tr>
 					<td>Age</td>
