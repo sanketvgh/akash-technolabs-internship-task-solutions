@@ -34,8 +34,8 @@
 
 			<?php for ($i=1; $i <= 5; $i++) { ?>
 			<div class="row">
-					<input type="text" class="six columns" placeholder="What's your subject <?php echo $i ?> name?" name="<?php echo "subjectName$i" ?>" required>
-					<input type="text" class="two columns" placeholder="Marks" name="<?php echo "marks$i" ?>"  required>
+					<input type="text" class="six columns" placeholder="What's your subject <?php echo $i ?> name?" name="subjects[]" required>
+					<input type="text" class="two columns" placeholder="Marks" name="marks[]"  required>
 			</div>
 			<?php } ?>
 

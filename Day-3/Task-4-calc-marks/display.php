@@ -3,8 +3,8 @@
 	Task 4: Take 5 subject marks form user and display all the marks and also show total, percentage, and grade. */
 
 	//if anyone try to access display.php directly then redirect to index page. 
-	
-	if(!isset($_GET['submit'])){
+	$ishasSubjectAndMarks = isset($_GET['submit']) && isset($_GET['subjects']) && isset($_GET['marks']);
+	if(!$ishasSubjectAndMarks){
 		header("location: index.php");
 	}
 
@@ -48,8 +48,9 @@
 			}
 
 			$name = $_GET['name'];
-			$i = 1;
-			$totalMarks = 0;
+			$subjects = $_GET['subjects'];
+			$marks = $_GET['marks'];
+			$totalMarks = count($subjects) * 100;
 			$totalSocredMarks = 0; 
 		
 		?>
@@ -65,21 +66,19 @@
 			</thead>
 			<tbody>
 			<?php 
-				foreach ($_GET as $key => $value) {
-					if ($key == 'submit' || $key == 'name') {
-						continue;
-					}
-					if($i % 2 == 1){ 
-						$totalMarks += 100;
-						echo "<tr><td>$value</td>";
-					}else{
-						$marks = (double)$value;
-						$totalSocredMarks += $marks;
-						echo "<td>$marks</td>";
-						echo "<td>".getGrade($marks)."</td></tr>";
-					}
-					$i++; 
+
+				for ($i=0; $i < count($subjects); $i++) {
+					$currentMarks = (double)$marks[$i]; 
+					echo "<tr>";
+					echo "<td>$subjects[$i]</td>";
+
+					$totalSocredMarks += $currentMarks;
+					echo "<td>$currentMarks</td>";
+
+					echo "<td>".getGrade($currentMarks)."</td>";
+					echo "</tr>";
 				}
+
 				$percentage = $totalSocredMarks / $totalMarks * 100;
 				?>
 			</tbody>
