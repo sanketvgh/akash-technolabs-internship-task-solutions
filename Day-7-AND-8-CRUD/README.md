@@ -1,2 +1,3 @@
 ### CRUD Operation in php
-i have also implemented *trash functionality*\
+I have also implemented *Trash Functionality*
+Outputs of this project in "./___ouput" folder
