@@ -14,5 +14,6 @@ and fields are
 10. st_pincode
 11. st_blood_group
 
-### Task 2: Design a registration form then store those details into the databse with using theme.
+### Task 2: Design a registration form then store those details into the databse with using theme and also display the records.
+
 

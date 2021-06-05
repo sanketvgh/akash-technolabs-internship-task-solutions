@@ -1,6 +1,6 @@
 <?php require '../parts/loading.php' ?>
 <?php
-   $root = $_SERVER['DOCUMENT_ROOT'] . '/akash-technolabs-internship-task-solutions/Day-7';
+   $root = $_SERVER['DOCUMENT_ROOT'] . '/akash-technolabs-internship-task-solutions/Day-8';
    $path = $root . "/model/user.php";
    require_once $path;
 
