@@ -37,7 +37,7 @@
 					<div id="main">
 						<?php for ($i=0; $i<count($photos); $i++) { ?>
 							<article class="thumb">
-								<a href="<?php echo $photos[$i]['url'] ?>" class="image"><img src="<?php echo $photos[$i]['url'] ?>" alt="" /></a>
+								<a href="<?php echo $photos[$i]['url'] ?>" class="image"><img src="<?php echo $photos[$i]['url'] ?>" alt="<?php echo $photos[$i]['alt'] ?>" /></a>
 								<h2><?php echo $photos[$i]['title'] ?></h2>
 								<p><?php echo $photos[$i]['description'] ?></p>
 							</article>
