@@ -1,0 +1,453 @@
+:root {
+  --black: rgba(0, 0, 0, 0.9);
+  --blue: #45aaf2;
+  --blue-dark: #2d98da;
+}
+
+/* Flexbox
+// ================================================== */
+.d--f {
+  display: flex;
+}
+
+.d--if {
+  display: inline-flex;
+}
+
+/* Flex direction */
+.fd--r {
+  flex-direction: row;
+}
+
+/* Default */
+.fd--rr {
+  flex-direction: row-reverse;
+}
+
+.fd--c {
+  flex-direction: column;
+}
+
+.fd--cr {
+  flex-direction: column-reverse;
+}
+
+/* Flex wrap */
+.fw--n {
+  flex-wrap: nowrap;
+}
+
+/* Default */
+.fw--w {
+  flex-wrap: wrap;
+}
+
+.fw--wr {
+  flex-wrap: wrap-reverse;
+}
+
+/* Justify content */
+.jc--fe {
+  justify-content: flex-end;
+}
+
+.jc--fs {
+  justify-content: flex-start;
+}
+
+/* Default */
+.jc--c {
+  justify-content: center;
+}
+
+.jc--sa {
+  justify-content: space-around;
+}
+
+.jc--sb {
+  justify-content: space-between;
+}
+
+/* Align items */
+.ai--fs {
+  align-items: flex-start;
+}
+
+.ai--c {
+  align-items: center;
+}
+
+.ai--fe {
+  align-items: flex-end;
+}
+
+.ai--s {
+  align-items: stretch;
+}
+
+/* Default */
+.ai--b {
+  align-items: baseline;
+}
+
+/* Flex grow */
+.fg--0 {
+  flex-grow: 0;
+}
+
+/* Default */
+.fg--1 {
+  flex-grow: 1;
+}
+
+/* Flex shrink */
+.fs--0 {
+  flex-shrink: 0;
+}
+
+.fs--1 {
+  flex-shrink: 1;
+}
+
+/* Default */
+
+/* Flex basis */
+.fb--a {
+  flex-basis: auto;
+}
+
+/* Default */
+.fb--0 {
+  flex-basis: 0;
+}
+
+/* Align self */
+.as--a {
+  align-self: auto;
+}
+
+/* Default */
+.as--fs {
+  align-self: flex-start;
+}
+
+.as--c {
+  align-self: center;
+}
+
+.as--fe {
+  align-self: flex-end;
+}
+
+.as--s {
+  align-self: stretch;
+}
+
+.as--b {
+  align-self: baseline;
+}
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid var(--black);
+  outline: 0;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
+
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #fff;
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #fff;
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+.button-primary:disabled {
+  color: blue;
+}
+
+a.link {
+  color: var(--blue);
+}
+
+.link:hover {
+  color: var(--blue-dark);
+}
+
+.logo {
+  text-align: center;
+}
+
+body * {
+  /*    outline: 1px solid red;*/
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.loading-bar {
+  background: repeating-linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    var(--black) 100%
+  );
+  width: 100%;
+  background-size: 200% auto;
+  background-position: 0 100%;
+  animation: gradient 2s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  visibility: hidden;
+}
+
+.loading-bar--show {
+  display: block;
+  visibility: visible;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.main {
+  width: 320px;
+}
+
+/*form custom*/
+.form {
+}
+
+.form__label {
+  padding-bottom: 10px;
+}
+
+.form__message {
+  padding: 6px 0;
+  display: none;
+  visibility: hidden;
+  color: var(--red);
+}
+
+.form__input {
+  width: 100%;
+}
+.form__message--show {
+  display: inherit;
+  visibility: visible;
+}
+#saveButton {
+  border: none;
+}
+.saving {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: savingAnimation;
+  animation-timing-function: linear;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5) 38%,
+    rgba(255, 255, 255, 0.1) 54%
+  );
+  background-size: 1000px 640px;
+}
+@keyframes savingAnimation {
+  0% {
+    background-position: -568px 0;
+  }
+  100% {
+    background-position: 268px 0;
+  }
+}
+.saved {
+  cursor: not-allowed;
+  color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.link-back,
+.link-delete {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.link-delete {
+  color: var(--red) !important;
+}
+.link-back {
+  color: var(--blue) !important;
+}
+
+.note {
+  border: 1px solid lightgray;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.note:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.note__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: inherit;
+  margin-bottom: 32px;
+  font-weight: 200 !important;
+}
+
+.new_note {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 50px 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.16));
+  text-align: center;
+}
